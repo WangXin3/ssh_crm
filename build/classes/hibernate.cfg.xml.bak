@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 数据库基本配置 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///crm</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">root</property>
+	
+		<!-- 方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		
+		<!-- 将hibernate生成的sql语句打印到控制台 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 将hibernate生成的sql语句格式化(语法缩进) -->
+		<property name="hibernate.format_sql">true</property>
+		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		 
+		<!-- 
+			引入orm元数据
+			路径书写: 填写src下的路径
+		 -->
+		<mapping resource="com/wxx/domain/Customer.hbm.xml" />
+		<mapping resource="com/wxx/domain/LinkMan.hbm.xml" />
+		<mapping resource="com/wxx/domain/User.hbm.xml"/>
+	
+	</session-factory>
+</hibernate-configuration>
