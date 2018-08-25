@@ -79,13 +79,17 @@
 	</bean>
 	
 	<!-- action配置 -->
-	<!-- 注意Action对象作用范围一定是多例的，这样财富和struts2架构 scope="prototype" -->
+	<!-- 注意Action对象作用范围一定是多例的，这样才符合和struts2架构 scope="prototype" -->
 	<bean name="userAction" class="com.wxx.web.action.UserAction" scope="prototype">
 		<property name="userService" ref="userService"></property>
 	</bean>
 	
 	<bean name="customerAction" class="com.wxx.web.action.CustomerAction" scope="prototype">
 		<property name="customerService" ref="customerService"></property>
+	</bean>
+	
+	<bean name="baseDictAction" class="com.wxx.web.action.BaseDictAction" scope="prototype">
+		<property name="baseDictService" ref="baseDictService"></property>
 	</bean>
 	
 	
@@ -98,6 +102,10 @@
 		<property name="customerDao" ref="customerDao"></property>
 	</bean>
 	
+	<bean name="baseDictService" class="com.wxx.service.impl.BaseDictServiceImpl">
+		<property name="baseDictDao" ref="baseDictDao"></property>
+	</bean>
+	
 	
 	<!-- dao配置 -->
 	<bean name="userDao" class="com.wxx.dao.impl.UserDaoImpl">
@@ -106,6 +114,11 @@
 	</bean>
 	
 	<bean name="customerDao" class="com.wxx.dao.impl.CustomerDaoImpl">
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean name="baseDictDao" class="com.wxx.dao.impl.BaseDictDaoImpl">
 		<!-- 注入sessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
