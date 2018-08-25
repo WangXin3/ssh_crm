@@ -9,21 +9,21 @@ function loadSelect(typeCode, positionId, selectName, selectedId) {
 	// 2.添加提示选项
 	$select.append($("<option value=''>---请选择---</option>"));
 	// 3.使用jquery 的ajax方法， 访问后台Action
-	$.post("${pageContext.request.contextPath}/BaseDictAction", {
-		dict_type_code : typeCode
-	}, function(data) {
-		// 4.返回json数组对象，对其遍历
-		// 遍历
-		$.each(data, function(i, json) {
-			var $option = $("<option value='" + json['dict_id'] + "'>"
-					+ json['dict_item_name'] + "</option>");
-			// 每次遍历创建一个option对象，判断是否需要回显， 兵添加到select对象
-			if (json['dict_id'] == selectedId) {
-				// 判断是否需要会先， 如果需要使其选中
-				$option.attr("selected", "selected");
-			}
-
-			$select.append($option);
+	$.post("${pageContext.request.contextPath}/BaseDictAction", 
+		{dict_type_code : typeCode},
+		function(data) {
+			// 4.返回json数组对象，对其遍历
+			// 遍历
+			$.each(data, function(i, json) {
+				var $option = $("<option value='" + json['dict_id'] + "'>"
+						+ json['dict_item_name'] + "</option>");
+				// 每次遍历创建一个option对象，判断是否需要回显， 兵添加到select对象
+				if (json['dict_id'] == selectedId) {
+					// 判断是否需要会先， 如果需要使其选中
+					$option.attr("selected", "selected");
+				}
+	
+				$select.append($option);
 		});
 	}, "json");
 
