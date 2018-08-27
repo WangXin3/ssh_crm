@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
+import org.springframework.dao.DataAccessException;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import com.wxx.dao.BaseDao;
@@ -25,7 +26,14 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 	
 	@Override
 	public void save(T t) {
-		getHibernateTemplate().save(t);
+		
+		try {
+			getHibernateTemplate().save(t);
+		} catch (DataAccessException e) {
+			System.out.println("出异常了");
+			
+			e.printStackTrace();
+		}
 	}
 
 	@Override

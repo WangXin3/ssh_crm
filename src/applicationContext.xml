@@ -27,7 +27,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- 配置通知 -->
-	<!-- <tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="save*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
 			<tx:method name="persist*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
@@ -38,15 +38,15 @@
 			<tx:method name="get*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
 			<tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
 		</tx:attributes>
-	</tx:advice> -->
+	</tx:advice>
 	
 	<!-- 配置织入 -->
-	<!-- <aop:config>
-		配置切点
+	<aop:config>
+		<!-- 配置切点 -->
 		<aop:pointcut expression="execution(* com.wxx.service.impl.*ServiceImpl.*(..))" id="txPc"/>
-		配置切面
+		<!-- 配置切面 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPc"/>
-	</aop:config> -->
+	</aop:config>
 	
 	
 	<!-- 将sessionFactory配置到spring容器中 -->

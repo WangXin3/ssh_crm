@@ -16,7 +16,9 @@
 	src="${pageContext.request.contextPath }/js/my.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		loadSelect("002", "level", "abv", 6);
+		loadSelect("006", "level", "cust_level.dict_id");
+		loadSelect("001", "industry", "cust_industry.dict_id");
+		loadSelect("002", "source", "cust_source.dict_id");
 	});
 </script>
 
@@ -25,9 +27,7 @@
 </HEAD>
 <BODY>
 	<FORM id=form1 name=form1
-		action="${pageContext.request.contextPath }/CustomerAction_add"
-		method="post">
-
+		action="${pageContext.request.contextPath }/CustomerAction_add" method="post">
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -73,13 +73,10 @@
 							</TR>
 
 							<TR>
-
 								<td>信息来源 ：</td>
-								<td><INPUT class=textbox id=sChannel2 style="WIDTH: 180px"
-									maxLength=50 name="cust_source"></td>
-								<td>联系人：</td>
-								<td><INPUT class=textbox id=sChannel2 style="WIDTH: 180px"
-									maxLength=50 name="cust_linkman"></td>
+								<td id="source"></td>
+								<td>客户行业：</td>
+								<td id="industry"></td>
 							</TR>
 
 							<TR>

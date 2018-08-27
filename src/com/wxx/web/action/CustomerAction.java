@@ -47,6 +47,13 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	}
 
 
+	public String add() throws Exception {
+		//1.调用Service，保存Customer对象
+		customerService.save(customer);
+		//2.重定向到客户列表Action
+		return "toList";
+	}
+
 	@Override
 	public Customer getModel() {
 		return customer;
