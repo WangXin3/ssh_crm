@@ -13,4 +13,7 @@ public interface CustomerService {
 	//保存客户
 	void save(Customer customer);
 
+	//根据id查询客户
+	Customer getById(Long cust_id);
+
 }

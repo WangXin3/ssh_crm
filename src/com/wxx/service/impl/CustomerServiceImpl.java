@@ -35,7 +35,12 @@ public class CustomerServiceImpl implements CustomerService {
 		//1.维护Customer与数据字典对象的关系
 		//调用Dao取出数据字典对象，将数据字典对象设置到Customer对象的对应属性中
 		//2.调用Dao保存客户
-		customerDao.save(customer);
+		customerDao.saveOrUpdate(customer);
+	}
+
+	@Override
+	public Customer getById(Long cust_id) {
+		return customerDao.getById(cust_id);
 	}
 
 }
