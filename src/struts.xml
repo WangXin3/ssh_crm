@@ -44,6 +44,7 @@
 				<param name="namespace">/</param>
 				<param name="actionName">LinkManAction_list</param>
 			</result>
+			<result name="list">/jsp/linkman/list.jsp</result>
 		</action>
 	</package>
 </struts>
