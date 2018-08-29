@@ -92,6 +92,10 @@
 		<property name="baseDictService" ref="baseDictService"></property>
 	</bean>
 	
+	<bean name="linkManAction" class="com.wxx.web.action.LinkManAction" scope="prototype">
+		<property name="lms" ref="linkManService"></property>
+	</bean>
+	
 	
 	<!-- service配置 -->
 	<bean name="userService" class="com.wxx.service.impl.UserServiceImpl">
@@ -104,6 +108,10 @@
 	
 	<bean name="baseDictService" class="com.wxx.service.impl.BaseDictServiceImpl">
 		<property name="baseDictDao" ref="baseDictDao"></property>
+	</bean>
+	
+	<bean name="linkManService" class="com.wxx.service.impl.LinkManServiceImpl">
+		<property name="lmd" ref="linkManDao"></property>
 	</bean>
 	
 	
@@ -119,6 +127,11 @@
 	</bean>
 	
 	<bean name="baseDictDao" class="com.wxx.dao.impl.BaseDictDaoImpl">
+		<!-- 注入sessionFactory -->
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean name="linkManDao" class="com.wxx.dao.impl.LinkManDaoImpl">
 		<!-- 注入sessionFactory -->
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
