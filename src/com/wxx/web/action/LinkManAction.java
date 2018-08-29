@@ -28,7 +28,7 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 			detachedCriteria.add(Restrictions.like("lkm_name", "%" + linkMan.getLkm_name() + "%"));
 		}
 		
-		if (linkMan.getCustomer() != null) {
+		if (linkMan.getCustomer() != null && linkMan.getCustomer().getCust_id() != null) {
 			detachedCriteria.add(Restrictions.eq("customer.cust_id", linkMan.getCustomer().getCust_id()));
 		}
 		
@@ -39,6 +39,20 @@ public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan>
 		ActionContext.getContext().put("pageBean", pageBean);
 		return "list";
 	}
+	
+	
+
+	public String toEdit() throws Exception {
+		
+		//1.调用Service
+		LinkMan lm = lms.getById(linkMan.getLkm_id());
+		
+		//2.将查询的LinkMan对象放入request域
+		ActionContext.getContext().put("linkMan", lm);
+		return "add";
+	}
+
+
 
 	public Integer getCurrentPage() {
 		return currentPage;
