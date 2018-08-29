@@ -12,4 +12,7 @@ public interface LinkManService {
 	
 	//联系人列表
 	public PageBean getPageBean(DetachedCriteria detachedCriteria, Integer currentPage, Integer pageSize);
+
+	//根据id获取到对象
+	LinkMan getById(Long cust_id);
 }

@@ -45,6 +45,9 @@
 				<param name="actionName">LinkManAction_list</param>
 			</result>
 			<result name="list">/jsp/linkman/list.jsp</result>
+			<result name="add">/jsp/linkman/add.jsp</result>
+			<result name="error">/jsp/linkman/list.jsp</result>
+			
 		</action>
 	</package>
 </struts>
