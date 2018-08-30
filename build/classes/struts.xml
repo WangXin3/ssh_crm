@@ -48,7 +48,6 @@
 			<result name="error">/login.jsp</result>
 			<result name="regist">/regist.jsp</result>
 			<result name="toLogin" type="redirect">/login.jsp</result>
-			
 		</action>
 		
 		<action name="CustomerAction_*" class="customerAction" method="{1}">
@@ -72,7 +71,18 @@
 			<result name="list">/jsp/linkman/list.jsp</result>
 			<result name="add">/jsp/linkman/add.jsp</result>
 			<result name="error">/jsp/linkman/list.jsp</result>
-			
 		</action>
+		
+		<!-- 客户拜访记录Action -->
+		<action name="SaleVisitAction_*" class="saleVisitAction" method="{1}">
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">SaleVisitAction_list</param>
+			</result>
+			<result name="list">/jsp/salevisit/list.jsp</result>
+			<result name="error">/debug.jsp</result>
+		</action>
+		
+		
 	</package>
 </struts>

@@ -1,5 +1,8 @@
 package com.wxx.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Customer {
 	/**
 	 * CREATE TABLE `cst_customer` (
@@ -30,6 +33,17 @@ public class Customer {
 	private BaseDict cust_source; // 引用客户来源
 	private BaseDict cust_industry; // 引用客户行业
 	private BaseDict cust_level; // 客户级别
+
+	//表达客户域拜访记录的一对多
+	private Set<SaleVisit> saleVisit = new HashSet<SaleVisit>();
+	
+	public Set<SaleVisit> getSaleVisit() {
+		return saleVisit;
+	}
+
+	public void setSaleVisit(Set<SaleVisit> saleVisit) {
+		this.saleVisit = saleVisit;
+	}
 
 	public Long getCust_id() {
 		return cust_id;

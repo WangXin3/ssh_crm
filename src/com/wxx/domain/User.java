@@ -1,5 +1,8 @@
 package com.wxx.domain;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
 	/**
 	 * CREATE TABLE `sys_user` (
@@ -17,9 +20,20 @@ public class User {
 	private String user_name;
 	private String user_password;
 	private Character user_state;
+	
+	//表达客户域拜访记录的一对多
+	private Set<SaleVisit> saleVisit = new HashSet<SaleVisit>();
 
 	public Long getUser_id() {
 		return user_id;
+	}
+
+	public Set<SaleVisit> getSaleVisit() {
+		return saleVisit;
+	}
+
+	public void setSaleVisit(Set<SaleVisit> saleVisit) {
+		this.saleVisit = saleVisit;
 	}
 
 	public void setUser_id(Long user_id) {
