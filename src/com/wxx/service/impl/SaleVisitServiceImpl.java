@@ -34,4 +34,9 @@ public class SaleVisitServiceImpl implements SaleVisitService {
 	public void setSvd(SaleVisitDao svd) {
 		this.svd = svd;
 	}
+
+	@Override
+	public SaleVisit getById(String visit_id) {
+		return svd.getById(visit_id);
+	}
 }

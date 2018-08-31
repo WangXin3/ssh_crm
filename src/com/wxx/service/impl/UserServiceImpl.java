@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 import com.wxx.dao.UserDao;
 import com.wxx.domain.User;
 import com.wxx.service.UserService;
+import com.wxx.utils.MD5Utils;
+
 @Transactional(isolation=Isolation.REPEATABLE_READ, propagation=Propagation.REQUIRED, readOnly=true)
 public class UserServiceImpl implements UserService {
 
@@ -25,7 +27,7 @@ public class UserServiceImpl implements UserService {
 			throw new RuntimeException("用户名不存在!");
 		}
 		//3.判断用户密码是否正确 不正确 抛出异常 提示密码错误
-		if (!existU.getUser_password().equals(u.getUser_password())) {
+		if (!existU.getUser_password().equals(MD5Utils.md5(u.getUser_password()))) {
 			throw new RuntimeException("密码错误!");
 		}
 		//4.返回查询到的用户对象
@@ -41,6 +43,9 @@ public class UserServiceImpl implements UserService {
 			//2.如果获得到user对象，用户名已经存在，抛出异常
 			throw new RuntimeException("用户名已经存在！");
 		}
+		//使用md5对密码进行加密
+		u.setUser_password(MD5Utils.md5(u.getUser_password()));
+		
 		//3.调用Dao执行保存
 		userDao.save(u);
 	}

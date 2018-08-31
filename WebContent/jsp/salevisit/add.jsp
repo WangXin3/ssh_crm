@@ -71,8 +71,8 @@
 							<TR>
 								<td>所属客户：</td>
 								<td>
-									<input type="hidden" name="customer.cust_id" id="cust_id" value="<s:property value="#linkMan.customer.cust_id"/>"/>
-									<input type="text" style="width: 180px" id="cust_name" value="<s:property value="#linkMan.customer.cust_name"/>">
+									<input type="hidden" name="customer.cust_id" id="cust_id" value="<s:property value="#saleVisit.customer.cust_id"/>"/>
+									<input type="text" style="width: 180px" id="cust_name" value="<s:property value="#saleVisit.customer.cust_name"/>">
 									<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=1400,height=300')">
 								</td>
 								<td>拜访时间 ：</td>

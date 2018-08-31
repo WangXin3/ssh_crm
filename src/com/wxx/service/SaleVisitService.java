@@ -12,4 +12,7 @@ public interface SaleVisitService {
 
 	//客户拜访记录的分页列表
 	public PageBean getPageBean(DetachedCriteria detachedCriteria, Integer currentPage, Integer pageSize);
+
+	//根据id查询客户对象
+	SaleVisit getById(String visit_id);
 }

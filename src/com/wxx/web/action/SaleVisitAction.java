@@ -45,6 +45,15 @@ public class SaleVisitAction extends ActionSupport implements ModelDriven<SaleVi
 		ActionContext.getContext().put("pageBean", pageBean);
 		return "list";
 	}
+	
+	public String toEdit() throws Exception {
+		//1.调用Service根据id查询客户拜访记录
+		SaleVisit sv = svs.getById(saleVisit.getVisit_id());
+		//2.将对象放入request域
+		ActionContext.getContext().put("saleVisit", sv);
+		//3.转发到add.jsp
+		return "add";
+	}
 
 	@Override
 	public SaleVisit getModel() {

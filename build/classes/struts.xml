@@ -80,6 +80,7 @@
 				<param name="actionName">SaleVisitAction_list</param>
 			</result>
 			<result name="list">/jsp/salevisit/list.jsp</result>
+			<result name="add">/jsp/salevisit/add.jsp</result>
 			<result name="error">/debug.jsp</result>
 		</action>
 		

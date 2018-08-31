@@ -91,7 +91,7 @@
 													<TD>
 														<input type="hidden" name="customer.cust_id" id="cust_id" value="${param['customer.cust_id'] }">
 														<INPUT class="textbox" id="cust_name" style="WIDTH: 80px" 
-															maxLength=50 name="cust_name" value="${param['cust_name'] }">
+															maxLength=50 name="cust_name" value="${param['cust_name'] }" readonly="readonly">
 														<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=1400,height=300')">
 													</TD>
 											
